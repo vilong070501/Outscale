@@ -24,10 +24,22 @@ variable "security_group_name" {
 }
 variable "image_id" {
   default = "ami-7b8d1702"
-  }
+}
 variable "vm_type" {
   default = "tinav2.c1r1p3"
-  }
+}
 variable "web_server_count" {
   default = 2
+}
+variable "load_balancer_name" {
+  default = "public-lb-as"
+}
+variable "load_balancer_type" {
+  default = "internet-facing"
+}
+variable "bastion_image" {
+  default = "ami-6e080518"
+}
+variable "bastion_type" {
+  default = "t2.micro"
 }

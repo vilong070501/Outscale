@@ -1,13 +1,20 @@
 resource "outscale_load_balancer" "web_lb" {
-  load_balancer_name = "web-lb"
+  load_balancer_name = var.load_balancer_name
   subnets            = [outscale_subnet.public_subnet.subnet_id]
-  security_groups    = [outscale_security_group.web_sg.security_group_id]
+  security_groups    = [outscale_security_group.lb_sg.security_group_id]
+  load_balancer_type = var.load_balancer_type
 
   listeners {
     backend_port           = 80
     backend_protocol       = "HTTP"
     load_balancer_port     = 80
     load_balancer_protocol = "HTTP"
+  }
+  listeners {
+    backend_port           = 80
+    backend_protocol       = "TCP"
+    load_balancer_protocol = "TCP"
+    load_balancer_port     = 80
   }
 
   tags {
