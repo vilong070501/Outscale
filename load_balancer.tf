@@ -5,16 +5,16 @@ resource "outscale_load_balancer" "web_lb" {
   load_balancer_type = var.load_balancer_type
 
   listeners {
-    backend_port           = 80
+    backend_port           = 8080
     backend_protocol       = "HTTP"
-    load_balancer_port     = 80
+    load_balancer_port     = 8080
     load_balancer_protocol = "HTTP" 
   }
   listeners {
     backend_port           = 80
     backend_protocol       = "TCP"
     load_balancer_protocol = "TCP"
-    load_balancer_port     = 81
+    load_balancer_port     = 80
   }
 
   tags {
