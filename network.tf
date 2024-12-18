@@ -2,9 +2,9 @@
 resource "outscale_net" "vpc" {
   ip_range = var.ip_range_net
     tags  {
-    key = "name"
-    value =  "vpc-main"
-  }
+      key = "name"
+      value = "vpc-main"
+    }
 
 }
 #creation du sous reseau public
@@ -29,7 +29,7 @@ resource "outscale_subnet" "private_subnet" {
     value = "private-subnet"
   }
 }
-#internet service
+#internet gateway
 resource "outscale_internet_service" "internet_service_as" {}
 
 # Liaison du service internet

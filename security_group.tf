@@ -5,14 +5,14 @@ resource "outscale_security_group" "bastion_sg" {
   net_id              = outscale_net.vpc.net_id
 }
 
-# Rule to allow SSH access to Bastion Host from a specific IP range
+# Rule to allow SSH access to Bastion Host from everywhere
 resource "outscale_security_group_rule" "bastion_ssh" {
   flow              = "Inbound"
   security_group_id = outscale_security_group.bastion_sg.security_group_id
   from_port_range   = "22"
   to_port_range     = "22"
   ip_protocol       = "tcp"
-  ip_range          = "203.0.113.0/24" # Replace with your IP range
+  ip_range          = var.ip_range_full
 }
 
 # Security Group for Web Servers

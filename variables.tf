@@ -32,7 +32,7 @@ variable "web_server_count" {
   default = 2
 }
 variable "load_balancer_name" {
-  default = "public-lb-as"
+  default = "public-load-balancer"
 }
 variable "load_balancer_type" {
   default = "internet-facing"
