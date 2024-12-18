@@ -26,7 +26,7 @@ variable "image_id" {
   default = "ami-7b8d1702"
 }
 variable "vm_type" {
-  default = "tinav2.c1r1p3"
+  default = "tinav4.c1r2p3"
 }
 variable "web_server_count" {
   default = 2
@@ -41,5 +41,5 @@ variable "bastion_image" {
   default = "ami-6e080518"
 }
 variable "bastion_type" {
-  default = "t2.micro"
+  default = "tinav4.c1r2p3"
 }
