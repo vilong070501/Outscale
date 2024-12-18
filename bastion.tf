@@ -10,3 +10,16 @@ resource "outscale_vm" "bastion" {
     value = "bastion"
   }
 }
+
+# Création d'une IP public
+resource "outscale_public_ip" "public_ip_bastion" {
+  tags {
+  key = "name"
+  value = "public_ip_bastion"
+  }
+}
+# Liaison de notre IP public avec notre VM
+resource "outscale_public_ip_link" "public_ip_link_as" {
+  vm_id = outscale_vm.bastion.vm_id
+  public_ip = outscale_public_ip.public_ip_bastion.public_ip
+}

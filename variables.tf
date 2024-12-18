@@ -38,7 +38,7 @@ variable "load_balancer_type" {
   default = "internet-facing"
 }
 variable "bastion_image" {
-  default = "ami-6e080518"
+  default = "ami-7b8d1702"
 }
 variable "bastion_type" {
   default = "tinav4.c1r2p3"
