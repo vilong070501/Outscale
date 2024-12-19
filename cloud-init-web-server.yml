@@ -1,10 +1,19 @@
 #cloud-config
+cloud_config_modules:
+  - package-update-upgrade-install
+
 package_update: true
 package_upgrade: true
 packages:
   - nginx
+  - lighttpd
 
 runcmd:
   - systemctl start nginx
   - systemctl enable nginx
-  - echo "<h1>Bienvenue sur le serveur Web $(hostname)</h1>" > /var/www/html/index.html
+  - node_number=$1
+  - colors=("blue" "red")
+  - node_color=${colors[node_number]}
+  - dest="/var/www/html/index.html"
+  - echo "<html><body style=\"background-color:${node_color};color:white;text-align:center;font-size:80px;\">Node ${node_number}</body></html>" > $dest
+  - chmod a+r $dest
